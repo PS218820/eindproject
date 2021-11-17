@@ -20,13 +20,11 @@ Route::get('/', function () {
 
 Route::get('/computers', [ComputerController::class, 'index'])->Name('computers.index');
 
-Route::get('/computers/create', function () {
-    return view('create');
-});
+Route::get('/computers/create',[ComputerController::class, 'create'])->Name('computers.create');
 
-Route::get('/computers/{urlnaam}',[ComputerController::class, 'show']);
+Route::get('/computers/{urlnaam}',[ComputerController::class, 'show'])->Name('computers.show');
 
-Route::get('/computers/{urlnaam}/edit',[ComputerController::class, 'edit']);
+Route::get('/computers/{urlnaam}/edit',[ComputerController::class, 'edit'])->Name('computers.edit');
 
 Route::post('/computers', [ComputerController::class, 'store'])->name('computers.store');
 Route::delete('/computers/{id}', [ComputerController::class, 'destroy'])->name('computers.destroy');

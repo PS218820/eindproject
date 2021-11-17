@@ -17,8 +17,7 @@ class CreateComputersTable extends Migration
           $table->id();
           $table->string('name', 100);
           $table->string('maker')->nullable();
-          $table->dateTime('created_at');
-          $table->dateTime('updated_at');
+          $table->timestamps();
         });
     }
 

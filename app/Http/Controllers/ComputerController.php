@@ -26,7 +26,8 @@ class ComputerController extends Controller
      */
     public function create()
     {
-        //
+        //ga naar de pagina om er een aan te maken
+        return view('create');
     }
 
     /**
@@ -44,7 +45,7 @@ class ComputerController extends Controller
 
         Computer::create($request->all());
 
-        return redirect()->route('computers.store');
+        return redirect()->route('computers.index');
     }
 
     /**
@@ -83,7 +84,8 @@ class ComputerController extends Controller
         'maker' => 'required',
       ]);
 
-      $Computer->update($request->all());
+        Computer::find($id)->update($request->except(['_token', '_method']));
+        return redirect()->route('computers.index');
     }
 
     /**
